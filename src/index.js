@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import {createStore, combineReducers} from 'redux'
-import todos, {addTodo} from './store/todos'///reducer 
+import todos, {addTodo,filterTodos} from './store/todos'///reducer 
 import counter,{increment,decrement,reset} from './store/counter'
 import cart, {addToCart} from './store/cart'
 
@@ -37,6 +37,8 @@ store.dispatch(decrement())
 store.dispatch(decrement())
 store.dispatch(decrement())
 store.dispatch(reset())
+store.dispatch(addTodo('sdsdsdsd'))
+store.dispatch(filterTodos('Go'))
 
 console.warn(store.getState())
 store.dispatch(addToCart('allalaa',15))
