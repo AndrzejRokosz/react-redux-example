@@ -1,20 +1,18 @@
 import React, { Component } from 'react'
-import 
+import { connect } from 'react-redux'
 import TodoList from './TodoList'
 
+const mapStateToProps = (store) => ({
+  todos: store.todos.allTodos,
+  visibleTodos: store.todos.visibleTodos
+
+})
 
 class App extends Component {
   render() {
-    return (
-      <TodoList
-        todos={[
-          { text: 'First to do from App' },
-          { text: 'Second to do from App' }
-        ]}
-      />
-
-    )
+    console.log('App props', this.props)
+    return <TodoList todos={this.props.todos} />
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
