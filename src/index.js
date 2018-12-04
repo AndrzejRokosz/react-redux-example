@@ -6,7 +6,7 @@ import {createStore, combineReducers} from 'redux'
 import todos, {addTodo,filterTodos,toggleTodo,deleteTodo} from './store/todos'///reducer 
 import counter,{increment,decrement,reset} from './store/counter'
 import cart, {addToCart} from './store/cart'
-
+import {Provider} from 'react-redux'
 //Redux here
 const rootReducer =combineReducers({
 todos,
@@ -51,6 +51,14 @@ window.dodajTodo=(text)=>store.dispatch(addTodo(text))
 window.toggleTodo=(index)=>store.dispatch(toggleTodo(index))
 
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+<Provider store={store}>
+   <App /> 
+</Provider>
+
+
+,
+
+document.getElementById('root'))
 
 
